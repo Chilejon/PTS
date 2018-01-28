@@ -5,11 +5,17 @@ class EnterPreds extends React.Component {
         super(props, context);
 
         this.state = {
-            items: []
+            h1team:'England',
+            a1team:'Russia',
+            h2team:'Wales',
+            a2team:'Spain',
+            items: [
+            ]
         };
-
         this.addItem = this.addItem.bind(this);
     }
+
+ 
 
     addItem(e) {
         var itemArray = this.state.items;
@@ -60,7 +66,7 @@ class EnterPreds extends React.Component {
                             </select>
                         </p>
                         <p> Match 1:
-          <label >Team A</label>
+          <label>{this.state.h1team}</label>
                             <select id="h1" ref={(input) => this.h1 = input}>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
@@ -72,7 +78,7 @@ class EnterPreds extends React.Component {
                                 <option value="7">7</option>
                                 <option value="8">8</option>
                             </select>
-                            <label >Team B</label>
+                            <label >{this.state.a1team}</label>
                             <select id="a1" ref={(input) => this.a1 = input}>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
@@ -86,7 +92,7 @@ class EnterPreds extends React.Component {
                             </select>
                         </p>
                         <p> Match 2:
-          <label >Team C</label>
+          <label >{this.state.h2team}</label>
                             <select id="h2" ref={(input) => this.h2 = input}>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
@@ -98,7 +104,7 @@ class EnterPreds extends React.Component {
                                 <option value="7">7</option>
                                 <option value="8">8</option>
                             </select>
-                            <label >Team D</label>
+                            <label >{this.state.a2team}</label>
                             <select id="a2" ref={(input) => this.a2 = input}>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
@@ -121,9 +127,10 @@ class EnterPreds extends React.Component {
                {this.state.items.map(item => {
     return ( <div>{item.username}>
         <dt>{item.weekno}</dt>
-        <dt>{item.h1}</dt>
-        <dt>{item.a1}</dt>
-        <dt>{item.h2}</dt>
+        <dt>{this.state.h1team} : {item.h1}</dt>
+        <dt>{this.state.a1team} : {item.a1}</dt>
+        <dt>{this.state.h2team} : {item.h2}</dt>
+        <dt>{this.state.a2team} : {item.a2}</dt>
     
         <dt>{item.a2}</dt>
         </div>)
