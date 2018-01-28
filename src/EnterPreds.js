@@ -5,10 +5,16 @@ class EnterPreds extends React.Component {
         super(props, context);
 
         this.state = {
+            username:'Joe.Bloggs',
+            weekno:'1',
             h1team:'England',
             a1team:'Russia',
             h2team:'Wales',
             a2team:'Spain',
+            h1:'0',
+            a1:'0',
+            h2:'0',
+            a2:'0',
             items: [
             ]
         };
@@ -28,9 +34,24 @@ class EnterPreds extends React.Component {
                     h1: this.h1.value,
                     a1: this.a1.value,
                     h2: this.h2.value,
-                    a2: this.a2.value
+                    a2: this.a2.value,
+                    defaults: true
                 }
             );
+
+            this.setState(
+                {
+                    username:this.username.value,
+                    weekno:this.weekno.value,
+                    h1:this.h1.value,
+                    a1:this.a1.value,
+                    h2:this.h2.value,
+                    a2:this.a2.value,
+                    dateEntered: Date.now(),
+                    defaults:false
+
+                }
+            )
 
             this.setState({
                 items: itemArray
@@ -124,17 +145,15 @@ class EnterPreds extends React.Component {
                 </div>
                 <div>
                 
-               {this.state.items.map(item => {
-    return ( <div>{item.username}>
-        <dt>{item.weekno}</dt>
-        <dt>{this.state.h1team} : {item.h1}</dt>
-        <dt>{this.state.a1team} : {item.a1}</dt>
-        <dt>{this.state.h2team} : {item.h2}</dt>
-        <dt>{this.state.a2team} : {item.a2}</dt>
+
+     <div>{this.state.username}
+        <dt>{this.state.weekno}</dt>
+        <dt>{this.state.h1team} : {this.state.h1}</dt>
+        <dt>{this.state.a1team} : {this.state.a1}</dt>
+        <dt>{this.state.h2team} : {this.state.h2}</dt>
+        <dt>{this.state.a2team} : {this.state.a2}</dt>
+        </div>
     
-        <dt>{item.a2}</dt>
-        </div>)
-    })
 }
 
 </div>
