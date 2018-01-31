@@ -154,8 +154,6 @@ class EnterPreds extends React.Component {
         <dt>{this.state.a2team} : {this.state.a2}</dt>
         </div>
     
-}
-
 </div>
             </div>
 
