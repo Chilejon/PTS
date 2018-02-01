@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import FormFieldSetContainer from './components/FormFieldSetContainer'
+import EnterPreds from './EnterPreds'
+import EnterMatches1 from './EnterMatches1'
 
 class Apps extends Component{
 
@@ -21,8 +23,13 @@ class Apps extends Component{
         return (
 
             <section>
-               <FormFieldSetContainer label="Simple date" id="dateofevent" type="date" onChangeHandler={this.onChangeHandler.bind(this)} />
-            </section>
+                <EnterPreds />
+               
+                </section>
+                
+           // <section>
+           //    <FormFieldSetContainer label="Simple date" id="dateofevent" type="date" onChangeHandler={this.onChangeHandler.bind(this)} />
+           // </section>
 
         )
 

@@ -8,7 +8,9 @@ import EnterMatches from './EnterMatches';
 
 var destination = document.querySelector("#container");
 
-//ReactDOM.render(<EnterPreds />, destination);
-ReactDOM.render(<EnterMatches />, destination);
+ReactDOM.render(
+    <Apps />,
+ destination);
+//ReactDOM.render(<EnterMatches />, destination);
 //ReactDOM.render(<Apps />, destination);
 

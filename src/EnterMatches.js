@@ -23,20 +23,21 @@ class EnterMatches extends React.Component {
 
     addItem(e) {
         var itemArray = this.state.items;
-        alert(this.h1.value);
-        if (this.weekno.value !== "") {
-            itemArray.unshift(
-                {
-                    username: this.username.value,
-                    weekno: this.weekno.value,
-                    h1: this.h1.value,
-                    a1: this.a1.value,
-                    h2: this.h2.value,
-                    a2: this.a2.value
+        
+       // if (this.weekno.value !== "") {
+           
+           // itemArray.unshift(
+           //     {
+           //         username: this.username.value,
+            //        weekno: this.weekno.value,
+                   // h1: this.h1.value,
+                   // a1: this.a1.value,
+                   // h2: this.h2.value,
+                   // a2: this.a2.value
                     //defaults: true
-                }
-            );
-
+           //     }
+           // );
+            
             this.setState(
                 {
                     username:this.username.value,
@@ -50,13 +51,13 @@ class EnterMatches extends React.Component {
                     //defaults:false
                 }
             )
-
-            this.setState({
-                items: itemArray
-            });
+            
+            //this.setState({
+            //    items: itemArray
+            //});
 //            this.username.value = "";
-            this.weekno.value = 1;
-        }
+           // this.weekno.value = 1;
+        
 
         e.preventDefault();
 
