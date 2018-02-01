@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import EnterPreds from './EnterPreds';
 import Apps from './Apps';
-import EnterMatches from './EnterMatches';
+import EnterMatches1 from './EnterMatches1';
 
 
 var destination = document.querySelector("#container");
 
-ReactDOM.render(
-    <Apps />,
- destination);
+//ReactDOM.render(
+//    <EnterMatches1 />,
+// destination);
 //ReactDOM.render(<EnterMatches />, destination);
-//ReactDOM.render(<Apps />, destination);
+ReactDOM.render(<Apps />, destination);
 

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import FormFieldSetContainer from './components/FormFieldSetContainer'
 import EnterPreds from './EnterPreds'
 import EnterMatches1 from './EnterMatches1'
+import WeeklyTable from './WeeklyTable'
 
 class Apps extends Component{
 
@@ -23,8 +24,9 @@ class Apps extends Component{
         return (
 
             <section>
+                <WeeklyTable />
+                <EnterMatches1 />
                 <EnterPreds />
-               
                 </section>
                 
            // <section>
