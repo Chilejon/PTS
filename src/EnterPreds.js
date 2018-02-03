@@ -72,7 +72,7 @@ class EnterPreds extends React.Component {
                     <form onSubmit={this.addItem}>
 
                         <p>
-                        <label  className="enter">Username<input id="username" ref={(a) => this.username = a} required value="Joe.Bloggs"></input>
+                        <label  className="enter">Username<input id="username" ref={(a) => this.username = a} required></input>
                         </label>
                         </p>
                         <p>

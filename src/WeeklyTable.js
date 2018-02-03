@@ -109,9 +109,12 @@ class WeeklyTable extends React.Component {
 
       listAllPredictions(item)
       {
-        return <p>
-        {item.username} : {item.h1pred} 
-        </p>
+        return <section>
+            
+        <label>{item.username}</label>&nbsp;
+        <strong>{item.h1pred}:{item.a1pred}</strong>&nbsp;
+        <strong>{item.h2pred}:{item.a2pred}</strong>
+        </section>
       }
 
 
@@ -125,30 +128,13 @@ class WeeklyTable extends React.Component {
 
      <section id="weeklyTable">
         <dt>Week {this.state.weekno} actual scores</dt>
-        <dt>{this.state.h1team} {this.state.h1score} :
-        {this.state.a1score} {this.state.a1team} </dt>
-        <dt>{this.state.h2team} {this.state.h2score} :
-        {this.state.a2score} {this.state.a2team} </dt>
+        <dt>{this.state.h1team} <strong>{this.state.h1score}:
+        {this.state.a1score}</strong> {this.state.a1team} </dt>
+        <dt>{this.state.h2team} <strong>{this.state.h2score}:
+        {this.state.a2score}</strong> {this.state.a2team} </dt>
      </section>
 
-     <section id="predictionsx">
-        <table>
-            <tr>
-            <th>Name</th><th>Match 1</th><th>Match 2</th>
-            </tr>
-            <tr>
-            <td>{this.state.items[0].username}</td>
-            <td>{this.state.items[0].h1pred}:{this.state.items[0].a1pred}</td>
-            <td>{this.state.items[0].h2pred}:{this.state.items[0].a2pred}</td>
-            </tr>
-            <tr>
-            <td>{this.state.items[1].username}</td>
-            <td>{this.state.items[1].h1pred}:{this.state.items[1].a1pred}</td>
-            <td>{this.state.items[1].h2pred}:{this.state.items[1].a2pred}</td>
-            </tr>
-        </table>
-    </section>
-
+<br/>
     <section id="predictions">
             {listPredictions}
     </section>

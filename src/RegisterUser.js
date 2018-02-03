@@ -21,7 +21,23 @@ class RegisterUser extends React.Component {
                     password:this.password.value,
                     email:this.email.value,
                     dateCreated:Date.now(),
-                    defaults:true
+                    defaults:true,
+                    h1pred:9,
+                    a1pred:9,
+                    h2pred:9,
+                    a2pred:9,
+                    h3pred:9,
+                    a3pred:9,
+                    h4pred:9,
+                    a4pred:9,
+                    h5pred:9,
+                    a5pred:9,
+                    h6pred:9,
+                    a6pred:9,
+                    h7pred:9,
+                    a7pred:9,
+                    h8pred:9,
+                    a8pred:9
                 }
             )
        e.preventDefault();
@@ -36,10 +52,10 @@ class RegisterUser extends React.Component {
                             <input id="username" ref={(a) => this.username = a} required></input>
                         </section>
                         <section> Password:
-                            <input id="password" ref={(a) => this.password = a} required></input>
+                            <input id="password" type="password" ref={(a) => this.password = a} required></input>
                         </section>
                         <section> Email:
-                            <input id="email" ref={(a) => this.email = a} required></input>
+                            <input id="email" type="email" ref={(a) => this.email = a} required></input>
                         </section>
                         <section>
                             <button type="submit">add</button>
@@ -55,7 +71,8 @@ class RegisterUser extends React.Component {
         <dt>{this.state.email}</dt>
         <dt>{this.state.dateCreated}</dt>
         <dt>{this.state.defaults}</dt>
-        
+        <dt>{this.state.h1pred}</dt>
+        <dt>{this.state.a1pred}</dt>
         </div>
     
 </div>
