@@ -4,6 +4,7 @@ class WeeklyTable extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.createPoints = this.createPoints.bind(this);
+        this.calcMatchPts = this.calcMatchPts.bind(this);
         this.state = {
 
             weekno:'1',
@@ -33,6 +34,15 @@ class WeeklyTable extends React.Component {
                     h2pred:'1',
                     a2pred:'0',
                     points:''
+                },
+                {
+                    username:"Perfect Pete",
+                    weekno:'1',
+                    h1pred:'3',
+                    a1pred:'2',
+                    h2pred:'1',
+                    a2pred:'3',
+                    points:''
                 }
             ],
             points:[
@@ -46,7 +56,23 @@ class WeeklyTable extends React.Component {
         var pa = this.state.a1score
         var rh = item.h1pred       
         var ra = item.a1pred
+        accPoints += this.calcMatchPts(ph, pa, rh, ra)
+        var ph = this.state.h2score
+        var pa = this.state.a2score
+        var rh = item.h2pred       
+        var ra = item.a2pred
+        accPoints += this.calcMatchPts(ph, pa, rh, ra)
+    
+        return <p>
+        {item.username} : {accPoints} pts 
+        </p>
 
+      }
+
+
+      calcMatchPts(ph, pa, rh, ra){
+         
+          var accPoints = 0
         if (rh === 9 && ra === 9)
         {
             //no score 
@@ -78,25 +104,8 @@ class WeeklyTable extends React.Component {
                 }         
             }    
         }
-       
-       // if (this.state.h2score === item.h2pred)
-       // {
-       //     accPoints += 1
-       // }
-       // if (this.state.a2score === item.a2pred)
-       // {
-       //     accPoints += 1
-       // }
-        
-
-
-        return <p>
-        {item.username} : {accPoints} pts 
-        </p>
-
+        return accPoints
       }
-
- 
 
     render() {
 
