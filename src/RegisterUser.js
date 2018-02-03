@@ -5,15 +5,21 @@ class RegisterUser extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
+            username:'',
+            password:'',
+            email:'',
+            dateCreated:'',
+            defaults:''
         };
-        this.addItem = this.addUser.bind(this);
+        this.addUser = this.addUser.bind(this);
     }
     addUser(e) {
+       
             this.setState(
                 {
                     username:this.username.value,
-                    password:this.username.value,
-                    email:this.password.value,
+                    password:this.password.value,
+                    email:this.email.value,
                     dateCreated:Date.now(),
                     defaults:true
                 }
@@ -30,10 +36,10 @@ class RegisterUser extends React.Component {
                             <input id="username" ref={(a) => this.username = a} required></input>
                         </section>
                         <section> Password:
-                            <input id="password" ref={(a) => this.Password = a} required></input>
+                            <input id="password" ref={(a) => this.password = a} required></input>
                         </section>
                         <section> Email:
-                            <input id="email" ref={(a) => this.Email = a} required></input>
+                            <input id="email" ref={(a) => this.email = a} required></input>
                         </section>
                         <section>
                             <button type="submit">add</button>

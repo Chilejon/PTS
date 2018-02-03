@@ -1,5 +1,122 @@
 body {
-  margin: 0;
-  padding: 0;
+  padding: 50px;
+  background-color: #66CCFF;
   font-family: sans-serif;
+}
+#container {
+  display: flex;
+  justify-content: center;
+}
+
+.todoListMain {
+  border: 2px solid blue;
+  margin-bottom: 10px;
+}
+
+
+.todoListMain .enter input {
+  padding: 5px;
+  font-size: 12px;
+  border: 2px solid #003399;
+  width: 165px;
+}
+
+.todoListMain .enter label {
+  padding: 5px;
+  font-size: 12px;
+  width: 165px;
+  font-weight: bold;
+  width: 200px;
+}
+
+.todoListMain .enter select {
+  padding: 9px;
+  margin-left: 20px;
+  font-size: 16px;
+  border: 2px solid #003399;
+  width: 60px;
+}
+
+.todoListMain .enter button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+  margin-right: 0px;
+  background-color: #0066FF;
+  color:  #ffffff;
+  border: 2px solid #0066FF;
+}
+.todoListMain .enter button:hover {
+  background-color: #003399;
+  border: 2px solid #003399;
+  cursor: pointer;
+}
+.todoListMain .theList {
+  list-style: none;
+  padding-left: 0;
+  width: 400px;
+  display: flex; 
+  flex-direction: column;
+} 
+
+.todoListMain .theList li {
+  color: #333;
+  background-color: rgba(255,255,255,.5);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  transition: background-color .2s ease-out;
+ 
+}
+
+.todoListMain .theList .Top {
+  color: #FFF;
+  background-color: rgba(109, 43, 43, 0.9);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  transition: background-color .2s ease-out;
+  order: 1;
+}
+
+.todoListMain .theList .Middle {
+  color: #333;
+  background-color: rgba(255,255,255,.5);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  transition: background-color .2s ease-out;
+  order:2;
+}
+
+.todoListMain .theList .Bottom {
+  color: #333;
+  background-color: rgba(61,123,30,.87);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  transition: background-color .2s ease-out;
+  order:3;
+}
+
+.todoListMain .theList .Done {
+  color: #fff;
+  background-color: rgba(34, 34, 34, 0.5);
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  transition: background-color .2s ease-out;
+  order:4;
+}
+
+.todoListMain .theList li span {
+  color: red;
+  margin-left: 350px;
+  vertical-align: top;
+  float:right;
+}
+ 
+.todoListMain .theList li:hover {
+  background-color: pink;
+  cursor: pointer;
 }

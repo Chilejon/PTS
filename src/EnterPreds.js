@@ -68,14 +68,15 @@ class EnterPreds extends React.Component {
     render() {
         return (
             <div className="todoListMain">
-                <div className="header">
+                <div className="enter">
                     <form onSubmit={this.addItem}>
 
                         <p>
-                            <input id="username" ref={(a) => this.username = a} required value="Joe.Bloggs"></input>
+                        <label  className="enter">Username<input id="username" ref={(a) => this.username = a} required value="Joe.Bloggs"></input>
+                        </label>
                         </p>
                         <p>
-                            <label >Week No.</label>
+                            <label className="label">Week No.</label>
 
                             <select id="weekno" ref={(input) => this.weekno = input} >
                                 <option value="1">1</option>
@@ -86,8 +87,8 @@ class EnterPreds extends React.Component {
 
                             </select>
                         </p>
-                        <p> Match 1:
-          <label>{this.state.h1team}</label>
+                        <p><label  className="enter"> Match 1:
+          {this.state.h1team}</label>
                             <select id="h1" ref={(input) => this.h1 = input}>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
@@ -99,7 +100,7 @@ class EnterPreds extends React.Component {
                                 <option value="7">7</option>
                                 <option value="8">8</option>
                             </select>
-                            <label >{this.state.a1team}</label>
+                            <label className="enter">{this.state.a1team}</label>
                             <select id="a1" ref={(input) => this.a1 = input}>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
@@ -112,8 +113,8 @@ class EnterPreds extends React.Component {
                                 <option value="8">8</option>
                             </select>
                         </p>
-                        <p> Match 2:
-          <label >{this.state.h2team}</label>
+                        <p><label className="enter"> Match 2:
+          {this.state.h2team}</label>
                             <select id="h2" ref={(input) => this.h2 = input}>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
@@ -125,7 +126,7 @@ class EnterPreds extends React.Component {
                                 <option value="7">7</option>
                                 <option value="8">8</option>
                             </select>
-                            <label >{this.state.a2team}</label>
+                            <label className="enter">{this.state.a2team}</label>
                             <select id="a2" ref={(input) => this.a2 = input}>
                                 <option value="0">0</option>
                                 <option value="1">1</option>

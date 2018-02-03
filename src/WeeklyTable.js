@@ -5,6 +5,7 @@ class WeeklyTable extends React.Component {
         super(props, context);
         this.createPoints = this.createPoints.bind(this);
         this.calcMatchPts = this.calcMatchPts.bind(this);
+        this.listAllPredictions = this.listAllPredictions.bind(this);
         this.state = {
 
             weekno:'1',
@@ -69,7 +70,6 @@ class WeeklyTable extends React.Component {
 
       }
 
-
       calcMatchPts(ph, pa, rh, ra){
          
           var accPoints = 0
@@ -107,90 +107,56 @@ class WeeklyTable extends React.Component {
         return accPoints
       }
 
+      listAllPredictions(item)
+      {
+        return <p>
+        {item.username} : {item.h1pred} 
+        </p>
+      }
+
+
     render() {
-
         var players = this.state.items;
-
         var listPoints = players.map(this.createPoints);
-
- 
-
+        var listPredictions = players.map(this.listAllPredictions);
         return (
-
             <div className="todoListMain">
-
                 <div className="header">
 
-                  
-
- 
-
      <section id="weeklyTable">
-
         <dt>Week {this.state.weekno} actual scores</dt>
-
         <dt>{this.state.h1team} {this.state.h1score} :
-
         {this.state.a1score} {this.state.a1team} </dt>
-
         <dt>{this.state.h2team} {this.state.h2score} :
-
         {this.state.a2score} {this.state.a2team} </dt>
-
      </section>
 
- 
-
-     <section id="predictions">
-
+     <section id="predictionsx">
         <table>
-
             <tr>
-
             <th>Name</th><th>Match 1</th><th>Match 2</th>
-
             </tr>
-
             <tr>
-
             <td>{this.state.items[0].username}</td>
-
             <td>{this.state.items[0].h1pred}:{this.state.items[0].a1pred}</td>
-
             <td>{this.state.items[0].h2pred}:{this.state.items[0].a2pred}</td>
-
             </tr>
-
             <tr>
-
             <td>{this.state.items[1].username}</td>
-
             <td>{this.state.items[1].h1pred}:{this.state.items[1].a1pred}</td>
-
             <td>{this.state.items[1].h2pred}:{this.state.items[1].a2pred}</td>
-
             </tr>
-
         </table>
-
     </section>
 
- 
+    <section id="predictions">
+            {listPredictions}
+    </section>
+
 
     <section id="table">
-
- 
-
         {listPoints}
-
- 
-
     </section>
-
- 
-
-   
-
 </div>
 
             </div>
