@@ -5,6 +5,8 @@ class WeeklyTable extends React.Component {
         super(props, context);
         this.createPoints = this.createPoints.bind(this);
         this.calcMatchPts = this.calcMatchPts.bind(this);
+        this.calcTotalCorrect = this.calcTotalCorrect.bind(this);
+
         this.listAllPredictions = this.listAllPredictions.bind(this);
         this.state = {
 
@@ -53,19 +55,22 @@ class WeeklyTable extends React.Component {
 
     createPoints(item) {
         var accPoints = 0
+        var totalCorrect = 0
         var ph = this.state.h1score
         var pa = this.state.a1score
         var rh = item.h1pred       
         var ra = item.a1pred
         accPoints += this.calcMatchPts(ph, pa, rh, ra)
+        totalCorrect += this.calcTotalCorrect(ph, pa, rh, ra)
         var ph = this.state.h2score
         var pa = this.state.a2score
         var rh = item.h2pred       
         var ra = item.a2pred
         accPoints += this.calcMatchPts(ph, pa, rh, ra)
+        totalCorrect += this.calcTotalCorrect(ph, pa, rh, ra)
     
         return <p>
-        {item.username} : {accPoints} pts 
+        {item.username} : {accPoints} ({totalCorrect}) pts 
         </p>
 
       }
@@ -75,7 +80,6 @@ class WeeklyTable extends React.Component {
           var accPoints = 0
         if (rh === 9 && ra === 9)
         {
-            //no score 
         }
         else
         {
@@ -104,8 +108,17 @@ class WeeklyTable extends React.Component {
                 }         
             }    
         }
-        return accPoints
+        return accPoints 
       }
+
+      calcTotalCorrect(ph, pa, rh, ra){
+        var totalCorrect = 0
+          if (ph === rh && pa === ra )
+          {
+            totalCorrect += 1
+          }
+      return totalCorrect 
+    }
 
       listAllPredictions(item)
       {
@@ -144,15 +157,9 @@ class WeeklyTable extends React.Component {
         {listPoints}
     </section>
 </div>
-
             </div>
-
- 
-
         );
-
     }
-
 };
 
  
