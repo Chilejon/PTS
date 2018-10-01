@@ -6,69 +6,38 @@ class EnterMatches extends React.Component {
         super(props, context);
 
         this.state = {
-            username:'',
-            weekno:'1',
-            h1:'',
-            a1:'',
-            h2:'',
-            a2:''
+
         };
         this.addItem = this.addItem.bind(this);
     }
-     
-    //onChangeHandler(event) {
-    //    console.log("app change handler hit")
-
-    //}
 
     addItem(e) {
-        var itemArray = this.state.items;
-        
-       // if (this.weekno.value !== "") {
-           
-           // itemArray.unshift(
-           //     {
-           //         username: this.username.value,
-            //        weekno: this.weekno.value,
-                   // h1: this.h1.value,
-                   // a1: this.a1.value,
-                   // h2: this.h2.value,
-                   // a2: this.a2.value
-                    //defaults: true
-           //     }
-           // );
-            
-            this.setState(
-                {
-                    username:this.username.value,
-                    weekno:this.weekno.value,
-                    
-                    h1:this.h1.value,
-                    a1:this.a1.value,
-                    h2:this.h2.value,
-                    a2:this.a2.value
-                    //dateEntered: Date.now(),
-                    //defaults:false
-                }
-            )
-            
-            //this.setState({
-            //    items: itemArray
-            //});
-//            this.username.value = "";
-           // this.weekno.value = 1;
-        
 
+        var matchesdate = new Date(this.dateofmatches.value).toDateString("DD/MM/YYYY");
+
+        this.setState(
+            {
+                weekno: this.weekno.value,
+                h1team: this.h1team.value,
+                a1team: this.a1team.value,
+                h2team: this.h2team.value,
+                a2team: this.a2team.value,
+                dateofmatches: matchesdate,
+                dateEntered: Date.now(),
+                defaults: false
+            }
+        )
         e.preventDefault();
-
     }
 
     render() {
         return (
-            <div className="todoListMain">
-                <div className="header">
+  <div>
+                <h1>Enter matches</h1>
+                <a href="RegisterUser">Register</a>        
                     <form onSubmit={this.addItem}>
-                        <p>
+                        <div className="matches">
+                        <div>
                             <label >Week No.</label>
                             <select id="weekno" ref={(input) => this.weekno = input} >
                                 <option value="1">1</option>
@@ -77,36 +46,41 @@ class EnterMatches extends React.Component {
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
-                        </p>
-                        <p><input id="username" ref={(a) => this.username = a} required value="Joe.Bloggs"></input></p>
-                        <p> Match 1:
-                        <FormFieldSetContainer label="h1" id="h1" type="text" ref={(a) => this.h1 = a}  />
-                        <label> V </label>
-                        <FormFieldSetContainer label="a1" id="a1" type="text"  />
-                        </p>
-                        <p> Match 2:
-                        <FormFieldSetContainer label="h2" id="h2" type="text"  />
-                        <label> V </label>
-                        <FormFieldSetContainer label="a2" id="a2" type="text"  /> 
-                        </p>
-                        <p>
+                        </div>
+                        <div>
+                            <label>Date of Matches</label>
+                            <input id="dateofmatches" ref={(a) => this.dateofmatches = a} type="date"></input>
+                        </div>
+                        <div>
+                         <label>Match 1:</label>
+                        <input id="h1team" ref={(a) => this.h1team = a} required></input>
+                            V
+                            <input id="a1team" ref={(a) => this.a1team = a} required></input>
+                        </div>
+                        <div>
+                         <label>Match 2:</label>
+                        <input id="h2team" ref={(a) => this.h2team = a} required></input>
+                            V
+                            <input id="a2team" ref={(a) => this.a2team = a} required></input>
+                        </div>
+                       <div>
                             <button type="submit">add</button>
-                        </p>
-                    </form>
-                </div>
-                <div>
-                
-
-     <div>
-         <dt>{this.state.username}</dt>
-        <dt>{this.state.weekno}</dt>
-        <dt>{this.state.h1} : {this.state.a1}</dt>
-        <dt>{this.state.h2} : {this.state.a2}</dt>
-        </div>
-    
+                        </div>
 </div>
-            </div>
+                    </form>
 
+
+
+
+                    <div>
+                        <dt>{this.state.weekno}</dt>
+                        <dt>{this.state.dateofmatches}</dt>
+                        <dt>{this.state.h1team} </dt>
+                        <dt>{this.state.a1team} </dt>
+                        <dt>{this.state.h2team}</dt>
+                        <dt>{this.state.a2team}</dt>
+                    </div>
+</div>
         );
     }
 };

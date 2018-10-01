@@ -45,23 +45,28 @@ class RegisterUser extends React.Component {
 
     render() {
         return (
-            <div className="todoListMain">
-                <div className="header">
+          <div>
+                <h1>Register user</h1>
+                <section className="enter">
                     <form onSubmit={this.addUser}>
-                        <section> Username:
+                        <section> <label>Username:</label>
                             <input id="username" ref={(a) => this.username = a} required></input>
                         </section>
-                        <section> Password:
+                        <section> <label>Password:</label>
                             <input id="password" type="password" ref={(a) => this.password = a} required></input>
                         </section>
-                        <section> Email:
+                        <section> <label>Email:</label>
                             <input id="email" type="email" ref={(a) => this.email = a} required></input>
                         </section>
-                        <section>
+                        <div></div>
+                        <div>
                             <button type="submit">add</button>
-                        </section>
+                        </div>
                     </form>
-                </div>
+                </section>
+
+
+
                 <div>
                 
 
@@ -76,7 +81,7 @@ class RegisterUser extends React.Component {
         </div>
     
 </div>
-            </div>
+</div>
 
         );
     }

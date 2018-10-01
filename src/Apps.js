@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import FormFieldSetContainer from './components/FormFieldSetContainer'
 import EnterPreds from './EnterPreds'
-import EnterMatches1 from './EnterMatches1'
+import EnterMatches from './EnterMatches'
 import WeeklyTable from './WeeklyTable'
 import RegisterUser from './RegisterUser';
 
@@ -14,14 +14,21 @@ class Apps extends Component{
         console.log("app change handler hit")
     }
 
+    // <WeeklyTable />
+//     <br>
+//         <RegisterUser />
+//<EnterPreds />
+
+
     render() {
         return (
-            <section>
-                <RegisterUser />
-                <WeeklyTable />
-                <EnterMatches1 />
-                <EnterPreds />
-            </section>
+            
+            <div className="ptsMain">
+
+            
+       
+                <EnterMatches />
+            </div>
         )
     }
 }
