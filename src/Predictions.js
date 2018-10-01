@@ -1,28 +1,32 @@
-import React, {Component} from 'react'
-import Prediction from './components/Prediction';
+import React, { Component } from "react";
+import Prediction from "./components/Prediction";
 
-class Predictions extends Component{
-state = {
+class Predictions extends Component {
+  state = {
     predictions: [
-        { id: 1, value: 0},
-        { id: 2, value: 2},
-        { id: 3, value: 0},
-        { id: 4, value: 4},
-        { id: 5, value: 0},
+      { id: 1, hteam: "Man utd", hpred: 2, ateam: "Bournmouth", apred: 1 },
+      { id: 2, hteam: "Liverpool", hpred: 3, ateam: "Birmingham", apred: 1 },
+      { id: 3, hteam: "Man city", hpred: 1, ateam: "Brighton", apred: 1 },
+      { id: 4, hteam: "West Ham", hpred: 2, ateam: "Bristol city", apred: 1 },
+      { id: 5, hteam: "Arsenal", hpred: 1, ateam: "Macc town", apred: 1 }
     ]
+  };
+
+  render() {
+    return (
+      <section>
+        {this.state.predictions.map(predictions => (
+          <Prediction
+            hteam={predictions.hteam}
+            id={predictions.id}
+            hpred={predictions.hpred}
+            ateam={predictions.ateam}
+            apred={predictions.apred}
+          />
+        ))}
+      </section>
+    );
+  }
 }
 
-render() {
-        return (
-            <section>
-                {this.state.predictions.map(predictions => 
-                <Prediction key={predictions.id}
-                value={predictions.value}
-                id={predictions.id} 
-                />)}
-            </section>
-        )
-    }
-}
-
-export default Predictions
+export default Predictions;
