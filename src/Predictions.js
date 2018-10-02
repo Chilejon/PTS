@@ -14,7 +14,7 @@ class Predictions extends Component {
 
   render() {
     return (
-      <section>
+      <section className="ptsPredictions">
         {this.state.predictions.map(predictions => (
           <Prediction
             hteam={predictions.hteam}

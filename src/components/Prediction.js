@@ -19,7 +19,7 @@ class Prediction extends Component {
 
   render() {
     return (
-      <div>
+      <div className="ptsPrediction">
         <label>{this.props.id}</label>
         <label>{this.props.hteam}</label>
         <select value={this.props.hpred}>
