@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./PTS.css";
-import Predictions from "./Predictions";
+import Home from "./Home";
 
 var destination = document.querySelector("#container");
-ReactDOM.render(<Predictions />, destination);
+ReactDOM.render(<Home />, destination);

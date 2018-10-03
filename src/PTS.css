@@ -24,9 +24,10 @@ body {
 .ptsFullTable{
   width:400px;
   height:100%;
-  border:5px solid blue;
-  border-radius: 5%;
+  border:2px solid blue;
+  border-radius: 25px;
   float: left;
+  padding: 20px;
 }
 
 
