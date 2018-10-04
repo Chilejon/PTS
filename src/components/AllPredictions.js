@@ -22,6 +22,7 @@ class AllPredictions extends Component {
   render() {
     console.log('props', this.props)
     return (
+ 
         <tr><td>{this.props.name}</td>
         <td>{this.props.h1}</td><td>{this.props.a1}</td>
         <td>{this.props.h2}</td><td>{this.props.a2}</td>
