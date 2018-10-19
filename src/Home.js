@@ -73,13 +73,11 @@ class Home extends Component {
         ))}
         </table>
         </section>
-        <section>
-        <Slider team="dsds" score='2' />
+        <span>
+        <Slider id="A" team="Team A" score='-4' />
+        </span>
+       
         </section>
-{/*<section className="ptsFullTable">{canvases}</section>
-<div className="ptsFullTable"><ul>{canvases2}</ul></div>*/}
-
-      </section>
     );
   }
 }
