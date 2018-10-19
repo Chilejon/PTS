@@ -2,16 +2,64 @@ import React, { Component } from "react";
 import Predictions from "./Predictions";
 import AllPredictions from "./components/AllPredictions";
 
+const API = 'https://hn.algolia.com/api/v1/search?query='
+const API2 = 'http://interactive.stockport.gov.uk/siarestapi/v1/Getareas'
+const API3 = 'http://interactive.stockport.gov.uk/siarestapi/v1/GetPhotosByID?id=3'
+const API4 = 'http://interactive.stockport.gov.uk/siarestapi/v1/GetPhotosByTitle/?term=pineapple'
+
+const DEFAULT_QUERY = 'redux';
+const DEFAULT_QUERY2 = '';
+
+
 class Home extends Component {
   state = {
     weekInfo: 
     [
       { weekNo: 1, weekDate: '01/01/2019', name: 'Jon Chiles', h1: 1, a1: 0, h2: 2, a2: 1, h3: 3, a3: 0, h4: 2, a4: 1, h5: 2, a5: 3 },
       { weekNo: 1, weekDate: '01/01/2019', name: 'Tony Blaikie', h1: 2, a1: 1, h2: 3, a2: 2, h3: 3, a3: 1, h4: 4, a4: 1, h5: 2, a5: 1 }
-    ]
+    ],
+    data: [],
+    data2: [],
+    photo: {}
   };
 
+
+  componentDidMount() {
+    fetch(API2)
+      .then(response => response.json())
+      .then(json => {console.log(json);
+        this.setState({
+          data: json
+        });
+      });
+
+      fetch(API4)
+      .then(response => response.json())
+      .then(json => {console.log(json);
+        this.setState({
+          data2: json
+        });
+      });
+
+      //console.log('awooga')
+      //console.log(this.state.data2)
+
+  }
+
+
   render() {
+    var canvases = this.state.data.map(function(data) {
+      return (
+        <section id={data.ID}>{data.ID} : {data.Area1}</section>
+      );
+    });
+
+    var canvases2 = this.state.data2.map(function(data2) {
+      return (
+        <li>{data2.title} :  {data2.description}</li>
+      );
+    });
+
     return (
       <section>
           <Predictions />
@@ -28,6 +76,15 @@ class Home extends Component {
         ))}
         </table>
         </section>
+
+<section className="ptsFullTable">{canvases}</section>
+
+<div className="ptsFullTable"><ul>{canvases2}</ul></div>
+
+      <ul>
+      
+      </ul>
+
       </section>
     );
   }
