@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Predictions from "./Predictions";
 import AllPredictions from "./components/AllPredictions";
+import Slider from "./components/Slider";
 
 const API = 'https://hn.algolia.com/api/v1/search?query='
 const API2 = 'http://interactive.stockport.gov.uk/siarestapi/v1/Getareas'
@@ -40,10 +41,6 @@ class Home extends Component {
           data2: json
         });
       });
-
-      //console.log('awooga')
-      //console.log(this.state.data2)
-
   }
 
 
@@ -76,14 +73,11 @@ class Home extends Component {
         ))}
         </table>
         </section>
-
-<section className="ptsFullTable">{canvases}</section>
-
-<div className="ptsFullTable"><ul>{canvases2}</ul></div>
-
-      <ul>
-      
-      </ul>
+        <section>
+        <Slider team="dsds" score='2' />
+        </section>
+{/*<section className="ptsFullTable">{canvases}</section>
+<div className="ptsFullTable"><ul>{canvases2}</ul></div>*/}
 
       </section>
     );

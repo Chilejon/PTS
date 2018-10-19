@@ -117,10 +117,46 @@ body {
   color:  #ffffff;
   border: 2px solid #0066FF;
   float:left;
-
 }
 .ptsMain .matches button:hover {
   background-color: #003399;
   border: 2px solid #003399;
   cursor: pointer;
+}
+
+.sliderTable
+{
+  border: 2px solid #003399;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.sliderTable, th, td {
+  border: 1px solid #003399;
+  text-align: center;
+  vertical-align: middle;
+  height: 30px;
+  width: 30px;
+}
+
+.sliderTable th {
+  background-color: #0066FF;
+  color: white;
+}
+
+.sliderTable .minus {
+  background-color: pink;
+}
+.sliderTable .plus {
+  background-color: green;
+}
+.sliderTable .even {
+  background-color: orange;
+}
+
+.sliderTable .token {
+  color: red;
+  background-color: #003399;
+  font-size: 20px;
+  font-weight: bold;
 }
