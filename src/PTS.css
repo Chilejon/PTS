@@ -1,60 +1,53 @@
 body {
   padding: 50px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
 }
 #container {
   display: flex;
-
 }
 
-.ptsPredictions{
-  width:400px;
-  height:100%;
-  border:2px solid palevioletred;
+.ptsPredictions {
+  width: 400px;
+  height: 100%;
+  border: 2px solid palevioletred;
   border-radius: 25px;
   float: left;
   padding: 20px;
 }
 
-.ptsPrediction{
-  text-align:center;
+.ptsPrediction {
+  text-align: center;
 }
 
-.ptsFullTable{
-  width:400px;
-  height:100%;
-  border:2px solid blue;
+.ptsFullTable {
+  width: 400px;
+  height: 100%;
+  border: 2px solid blue;
   border-radius: 25px;
   float: left;
   padding: 20px;
 }
-
-
-
-
 
 .ptsMain {
   margin-bottom: 10px;
 }
 
-
 .ptsMain .enter input {
   padding: 5px;
   font-size: 12px;
   width: 200px;
-  float:left;
+  float: left;
   padding-bottom: 10px;
   margin: 10px;
 }
-
 
 .ptsMain .enter label {
   padding: 5px;
   font-size: 14px;
   width: 100px;
   font-weight: bold;
-  float:left;
+  float: left;
   padding-bottom: 10px;
   margin: 10px;
 }
@@ -71,11 +64,10 @@ body {
   font-size: 16px;
   margin: 10px;
   margin-right: 0px;
-  background-color: #0066FF;
-  color:  #ffffff;
-  border: 2px solid #0066FF;
-  float:left;
-
+  background-color: #0066ff;
+  color: #ffffff;
+  border: 2px solid #0066ff;
+  float: left;
 }
 .ptsMain .enter button:hover {
   background-color: #003399;
@@ -83,15 +75,13 @@ body {
   cursor: pointer;
 }
 
-
 .ptsMain .matches input {
   padding: 5px;
   font-size: 12px;
   width: 200px;
- 
+
   margin: 10px;
 }
-
 
 .ptsMain .matches label {
   padding: 5px;
@@ -113,25 +103,33 @@ body {
   font-size: 16px;
   margin: 10px;
   margin-right: 0px;
-  background-color: #0066FF;
-  color:  #ffffff;
-  border: 2px solid #0066FF;
-  float:left;
+  background-color: #0066ff;
+  color: #ffffff;
+  border: 2px solid #0066ff;
+  float: left;
 }
 .ptsMain .matches button:hover {
   background-color: #003399;
   border: 2px solid #003399;
   cursor: pointer;
 }
+.slider {
+  width: 100px;
+  border: 2px solid blue;
+  border-radius: 25px;
+  float: left;
+  padding: 20px;
+}
 
-.sliderTable
-{
+.sliderTable {
   border: 2px solid #003399;
   border-collapse: collapse;
   font-size: 16px;
 }
 
-.sliderTable, th, td {
+.sliderTable,
+th,
+td {
   border: 1px solid #003399;
   text-align: center;
   vertical-align: middle;
@@ -140,7 +138,7 @@ body {
 }
 
 .sliderTable th {
-  background-color: #0066FF;
+  background-color: #0066ff;
   color: white;
 }
 
