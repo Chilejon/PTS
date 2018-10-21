@@ -33,20 +33,27 @@ class Slider extends Component {
     var score = parseInt(this.state.score);
     var tokenLocation = this.state.id + score;
 
-    if (score < 0) {
-      document.getElementById(tokenLocation).className = "minus";
+    if (score > -8 && score < 8) {
+      if (score < 0) {
+        document.getElementById(tokenLocation).className = "minus";
+      }
+      if (score === 0) {
+        document.getElementById(tokenLocation).className = "even";
+      }
+      if (score > 0) {
+        document.getElementById(tokenLocation).className = "plus";
+      }
+      score = score - 1;
+      this.setState({ score: score });
+      tokenLocation = this.state.id + score;
+      document.getElementById(tokenLocation).className = "token";
+    } else {
+      if (score < -7) {
+        document.getElementById(this.state.id + "minus").className = "token";
+      }
+      score = score - 1;
+      this.setState({ score: score });
     }
-    if (score === 0) {
-      document.getElementById(tokenLocation).className = "even";
-    }
-    if (score > 0) {
-      document.getElementById(tokenLocation).className = "plus";
-    }
-
-    score = score - 1;
-    this.setState({ score: score });
-    tokenLocation = this.state.id + score;
-    document.getElementById(tokenLocation).className = "token";
   }
 
   moveTokenForward(event) {
@@ -54,20 +61,27 @@ class Slider extends Component {
     var score = parseInt(this.state.score);
     var tokenLocation = this.state.id + score;
 
-    if (score < 0) {
-      document.getElementById(tokenLocation).className = "minus";
+    if (score > -8 && score < 8) {
+      if (score < 0) {
+        document.getElementById(tokenLocation).className = "minus";
+      }
+      if (score === 0) {
+        document.getElementById(tokenLocation).className = "even";
+      }
+      if (score > 0) {
+        document.getElementById(tokenLocation).className = "plus";
+      }
+      score = score + 1;
+      this.setState({ score: score });
+      tokenLocation = this.state.id + score;
+      document.getElementById(tokenLocation).className = "token";
+    } else {
+      if (score > 7) {
+        document.getElementById(this.state.id + "plus").className = "token";
+      }
+      score = score + 1;
+      this.setState({ score: score });
     }
-    if (score === 0) {
-      document.getElementById(tokenLocation).className = "even";
-    }
-    if (score > 0) {
-      document.getElementById(tokenLocation).className = "plus";
-    }
-
-    score = score + 1;
-    this.setState({ score: score });
-    tokenLocation = this.state.id + score;
-    document.getElementById(tokenLocation).className = "token";
   }
 
   render() {
@@ -78,7 +92,7 @@ class Slider extends Component {
           <th>{this.props.team}</th>
         </tr>
         <button onClick={this.moveTokenBack}>Minus</button>
-        <tr>
+        <tr id={this.props.id + "minus"}>
           <td>Minus</td>
         </tr>
         <tr id={this.props.id + "-8"} className="minus">
@@ -132,7 +146,7 @@ class Slider extends Component {
         <tr id={this.props.id + "8"} className="plus">
           <td>+8</td>
         </tr>
-        <tr>
+        <tr id={this.props.id + "plus"}>
           <td>Plus</td>
         </tr>
         <button onClick={this.moveTokenForward}>Plus</button>
