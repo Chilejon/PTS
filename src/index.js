@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./PTS.css";
-import Home from "./Home";
+import "./Quiz.css";
+import Quiz from "./Quiz";
 
 var destination = document.querySelector("#container");
-ReactDOM.render(<Home />, destination);
+ReactDOM.render(<Quiz />, destination);

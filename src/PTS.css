@@ -113,13 +113,6 @@ body {
   border: 2px solid #003399;
   cursor: pointer;
 }
-.slider {
-  width: 100px;
-  border: 2px solid blue;
-  border-radius: 25px;
-  float: left;
-  padding: 20px;
-}
 
 .sliderTable {
   border: 2px solid #003399;
