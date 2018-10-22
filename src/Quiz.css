@@ -16,8 +16,14 @@ body {
   padding: 10px;
 }
 
-.hidden {
+#cont {
   display: none;
+}
+.show:focus + .hide {
+  display: inline;
+}
+.show:focus + .hide + #cont {
+  display: block;
 }
 
 .slider {

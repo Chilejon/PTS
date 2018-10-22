@@ -16,17 +16,19 @@ class Quiz extends Component {
     newArray.push({
       id: this.teamName.value,
       team: this.teamName.value,
-      score: "0"
+      score: this.teamScore.value
     });
     this.setState({ slider: newArray });
     e.preventDefault();
+    this.teamName.value = "";
+    this.teamScore = "";
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.addTeam}>
-          <div>
+        <div>
+          <form onSubmit={this.addTeam}>
             <p>Enter a team</p>
             <label>Team name</label>
             <input
@@ -34,9 +36,15 @@ class Quiz extends Component {
               ref={teamName => (this.teamName = teamName)}
               required
             />
+            <label>score</label>
+            <input
+              id="teamscore"
+              ref={teamScore => (this.teamScore = teamScore)}
+              required
+            />
             <button type="submit">add</button>
-          </div>
-        </form>
+          </form>
+        </div>
 
         {this.state.slider.map(slider => (
           <section className="slider">
