@@ -7,13 +7,17 @@ body {
   display: flex;
 }
 
-.ptsFullTable {
-  width: 100px;
+.entryForm {
+  width: 100%;
   height: 100%;
   border: 2px solid rgba(0, 89, 255, 0.308);
   border-radius: 25px;
   float: left;
   padding: 10px;
+}
+
+.hidden {
+  display: none;
 }
 
 .slider {
