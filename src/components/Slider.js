@@ -9,79 +9,19 @@ class Slider extends Component {
       score: this.props.score,
       id: this.props.id
     };
-
-    this.moveTokenBack = this.moveTokenBack.bind(this);
-    this.moveTokenForward = this.moveTokenForward.bind(this);
   }
 
   componentDidMount() {
-    var score = parseInt(this.state.score);
-    var tokenLocation = this.state.id + score;
-    if (score > 0) {
-      document.getElementById(tokenLocation).className = "token";
-    }
-    if (score === 0) {
-      document.getElementById(tokenLocation).className = "token";
-    }
-    if (score < 0) {
-      document.getElementById(tokenLocation).className = "token";
-    }
+    this.moveToken('no')
   }
 
-  moveTokenBack(event) {
-    score = this.state.score;
-    var score = parseInt(this.state.score);
-    var tokenLocation = this.state.id + score;
-
-    if (score > -8 && score < 8) {
-      if (score < 0) {
-        document.getElementById(tokenLocation).className = "minus";
-      }
-      if (score === 0) {
-        document.getElementById(tokenLocation).className = "even";
-      }
-      if (score > 0) {
-        document.getElementById(tokenLocation).className = "plus";
-      }
-      score = score - 1;
-      this.setState({ score: score });
-      tokenLocation = this.state.id + score;
-      document.getElementById(tokenLocation).className = "token";
-    } else {
-      if (score < -7) {
-        document.getElementById(this.state.id + "minus").className = "token";
-      }
-      score = score - 1;
-      this.setState({ score: score });
+  moveToken(event) {
+    var score = parseInt(this.state.score)
+    if (event === 'back' || event === 'forward')
+    {
+      event === 'back'? score = score - 1 : score = score + 1 
     }
-  }
-
-  moveTokenForward(event) {
-    score = this.state.score;
-    var score = parseInt(this.state.score);
-    var tokenLocation = this.state.id + score;
-
-    if (score > -8 && score < 8) {
-      if (score < 0) {
-        document.getElementById(tokenLocation).className = "minus";
-      }
-      if (score === 0) {
-        document.getElementById(tokenLocation).className = "even";
-      }
-      if (score > 0) {
-        document.getElementById(tokenLocation).className = "plus";
-      }
-      score = score + 1;
-      this.setState({ score: score });
-      tokenLocation = this.state.id + score;
-      document.getElementById(tokenLocation).className = "token";
-    } else {
-      if (score > 7) {
-        document.getElementById(this.state.id + "plus").className = "token";
-      }
-      score = score + 1;
-      this.setState({ score: score });
-    }
+    this.setState({ score: score });
   }
 
   render() {
@@ -91,65 +31,65 @@ class Slider extends Component {
         <tr>
           <th>{this.props.team}</th>
         </tr>
-        <button onClick={this.moveTokenBack}>Minus</button>
+        <button onClick={() => {this.moveToken('back')}}>Minus</button>
         <tr id={this.props.id + "minus"}>
           <td>Minus</td>
         </tr>
-        <tr id={this.props.id + "-8"} className="minus">
+        <tr className={this.state.score===-8?"token":"minus"}>
           <td>-8</td>
         </tr>
-        <tr id={this.props.id + "-7"} className="minus">
+        <tr className={this.state.score===-7?"token":"minus"}>
           <td>-7</td>
         </tr>
-        <tr id={this.props.id + "-6"} className="minus">
+        <tr className={this.state.score===-6?"token":"minus"}>
           <td>-6</td>
         </tr>
-        <tr id={this.props.id + "-5"} className="minus">
+        <tr className={this.state.score===-5?"token":"minus"}>
           <td>-5</td>
         </tr>
-        <tr id={this.props.id + "-4"} className="minus">
+        <tr className={this.state.score===-4?"token":"minus"}>
           <td>-4</td>
         </tr>
-        <tr id={this.props.id + "-3"} className="minus">
+        <tr className={this.state.score===-3?"token":"minus"}>
           <td>-3</td>
         </tr>
-        <tr id={this.props.id + "-2"} className="minus">
+        <tr className={this.state.score===-2?"token":"minus"}>
           <td>-2</td>
         </tr>
-        <tr id={this.props.id + "-1"} className="minus">
+        <tr className={this.state.score===-1?"token":"minus"}>
           <td>-1</td>
         </tr>
-        <tr id={this.props.id + "0"} className="even">
+        <tr className={this.state.score===0?"token":"even"}>
           <td>0</td>
         </tr>
-        <tr id={this.props.id + "1"} className="plus">
+        <tr className={this.state.score===1?"token":"plus"}>
           <td>+1</td>
         </tr>
-        <tr id={this.props.id + "2"} className="plus">
+        <tr className={this.state.score===2?"token":"plus"}>
           <td>+2</td>
         </tr>
-        <tr id={this.props.id + "3"} className="plus">
+        <tr className={this.state.score===3?"token":"plus"}>
           <td>+3</td>
         </tr>
-        <tr id={this.props.id + "4"} className="plus">
+        <tr className={this.state.score===4?"token":"plus"}>
           <td>+4</td>
         </tr>
-        <tr id={this.props.id + "5"} className="plus">
+        <tr className={this.state.score===5?"token":"plus"}>
           <td>+5</td>
         </tr>
-        <tr id={this.props.id + "6"} className="plus">
+        <tr className={this.state.score===6?"token":"plus"}>
           <td>+6</td>
         </tr>
-        <tr id={this.props.id + "7"} className="plus">
+        <tr className={this.state.score===7?"token":"plus"}>
           <td>+7</td>
         </tr>
-        <tr id={this.props.id + "8"} className="plus">
+        <tr className={this.state.score===8?"token":"plus"}>
           <td>+8</td>
         </tr>
         <tr id={this.props.id + "plus"}>
           <td>Plus</td>
         </tr>
-        <button onClick={this.moveTokenForward}>Plus</button>
+        <button onClick={() => {this.moveToken('forward')}}>Plus</button>
         <tr>
           <td>{this.state.score}</td>
         </tr>
