@@ -17,7 +17,7 @@ class FullDetails extends Component {
 
   render() {
     return (
-        <section className="imageBorder">
+        <section className="bigImageBorder">
         <h2>{this.state.title}</h2> 
         <p>
         {this.state.description}

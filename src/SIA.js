@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ImageDetails from "./components/ImageDetails";
 
+
 const API = "https://hn.algolia.com/api/v1/search?query=";
 const API2 = "http://interactive.stockport.gov.uk/siarestapi/v1/Getareas";
 const API3 = "http://interactive.stockport.gov.uk/siarestapi/v1/GetPhotosByID?id=3";
@@ -13,11 +14,11 @@ class SIA extends Component {
       Data: []
     };
     this.searchTitle = this.searchTitle.bind(this);
+
   }
+
   searchTitle(e) {
-
     this.setState({Data: []})
-
     fetch(API4 + this.title.value)
       .then(response => response.json())
       .then(json => {
@@ -31,15 +32,21 @@ class SIA extends Component {
     this.title.value = ""
   }
 
+ 
+
+
 render() {
     var images = this.state.Data.map(function(Data) {
       return (
-        <ImageDetails title={Data.title} description={Data.description} area={Data.area} AccessionNo={Data.AccessionNo.trim()} classno={Data.classno} dateofimage={Data.dateofimage} />
+        <ImageDetails title={Data.title} AccessionNo={Data.AccessionNo.trim()} />
       );
     });
 
+    
+
     return (
       <section>
+        <section className="searchBorder">
           <form onSubmit={this.searchTitle}>
             <p>Search a title</p>
             <label>Title:</label>
@@ -50,6 +57,7 @@ render() {
             />
             <button type="submit">search</button>
           </form>
+          </section>
           <section>{images}</section>
       </section>
     );

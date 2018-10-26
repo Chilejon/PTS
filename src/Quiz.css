@@ -17,13 +17,29 @@ body {
 }
 
 .imageBorder {
-  width: 400px;
-  height: 100%;
+  width: 300px;
   border: 2px solid rgba(0, 89, 255, 0.308);
   border-radius: 25px;
   xfloat: left;
   padding: 10px;
 }
+
+.bigImageBorder {
+  width: 600px;
+  border: 2px solid rgba(0, 255, 0.308);
+  border-radius: 25px;
+  float: right;
+  padding: 10px;
+}
+
+.searchBorder {
+  width: 300px;
+  border: 2px solid rgba(0, 89, 255, 0.308);
+  border-radius: 25px;
+  padding: 10px;
+}
+
+
 
 #cont {
   display: none;
