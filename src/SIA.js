@@ -1,20 +1,24 @@
-import React, { Component } from "react";
-import ImageDetails from "./components/ImageDetails";
+import React, { Component } from "react"
+import ImageDetails from "./components/ImageDetails"
+import FullDetails from "./components/FullDetails"
 
 
 const API = "https://hn.algolia.com/api/v1/search?query=";
 const API2 = "http://interactive.stockport.gov.uk/siarestapi/v1/Getareas";
 const API3 = "http://interactive.stockport.gov.uk/siarestapi/v1/GetPhotosByID?id=3";
 const API4 = "http://interactive.stockport.gov.uk/siarestapi/v1/GetPhotosByTitle/?term=";
+const GetPhotoByID = "http://interactive.stockport.gov.uk/siarestapi/v1/GetPhotosByID?id="
+
 
 class SIA extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      Data: []
+      Data: [],
+      imageDetails: {}
     };
     this.searchTitle = this.searchTitle.bind(this);
-
+    this.getImage = this.getImage.bind(this);
   }
 
   searchTitle(e) {
@@ -32,17 +36,26 @@ class SIA extends Component {
     this.title.value = ""
   }
 
+  getImage(event) {
+    fetch(GetPhotoByID + event.trim())
+      .then(response => response.json())
+      .then(json => {
+        console.log(json);
+        this.setState({
+          imageDetails: json
+        });
+      });
+
+    }
  
 
 
 render() {
-    var images = this.state.Data.map(function(Data) {
+    var images = this.state.Data.map((Data) => {
       return (
-        <ImageDetails title={Data.title} AccessionNo={Data.AccessionNo.trim()} />
+        <ImageDetails title={Data.title} AccessionNo={Data.AccessionNo.trim()} getImage={this.getImage}/>
       );
     });
-
-    
 
     return (
       <section>
@@ -59,6 +72,11 @@ render() {
           </form>
           </section>
           <section>{images}</section>
+
+          {this.state.imageDetails !== {} && (<section>
+          <FullDetails title={this.state.imageDetails.title} description={this.state.imageDetails.description} area={this.state.imageDetails.area} AccessionNo={this.state.imageDetails.AccessionNo} classno={this.state.imageDetails.classno} dateofimage={this.state.imageDetails.dateofimage} />
+          </section>)}
+
       </section>
     );
   }

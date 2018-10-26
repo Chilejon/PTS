@@ -16,17 +16,18 @@ class FullDetails extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
         <section className="bigImageBorder">
-        <h2>{this.state.title}</h2> 
+        <h2>{this.props.title}</h2> 
         <p>
-        {this.state.description}
+        {this.props.description}
         </p>
-        <p>{this.state.AccessionNo} : {this.state.area} : {this.state.classno}</p>
+        <p>{this.props.AccessionNo} : {this.props.area} : {this.props.classno}</p>
         <p>
-        {this.state.dateofimage}
+        {this.props.dateofimage}
         </p>
-        <img src={imgSrc + this.state.AccessionNo + ".jpg"} text={this.state.title} />
+        <img src={imgSrc + this.props.AccessionNo + ".jpg"} text={this.props.title} />
         </section>
     );
   }
