@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./Quiz.css";
-import Quiz from "./Quiz";
+import SIA from "./SIA";
 
 var destination = document.querySelector("#container");
-ReactDOM.render(<Quiz />, destination);
+ReactDOM.render(<SIA />, destination);

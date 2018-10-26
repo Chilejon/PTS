@@ -8,11 +8,20 @@ body {
 }
 
 .entryForm {
-  width: 100%;
+  width: 400%;
   height: 100%;
   border: 2px solid rgba(0, 89, 255, 0.308);
   border-radius: 25px;
   float: left;
+  padding: 10px;
+}
+
+.imageBorder {
+  width: 400px;
+  height: 100%;
+  border: 2px solid rgba(0, 89, 255, 0.308);
+  border-radius: 25px;
+  xfloat: left;
   padding: 10px;
 }
 
