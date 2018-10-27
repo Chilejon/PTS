@@ -20,16 +20,20 @@ body {
   width: 300px;
   border: 2px solid rgba(0, 89, 255, 0.308);
   border-radius: 25px;
-  xfloat: left;
+  float: left;
   padding: 10px;
 }
 
 .bigImageBorder {
-  width: 600px;
+  width: 400px;
   border: 2px solid rgba(0, 255, 0.308);
   border-radius: 25px;
   float: right;
   padding: 10px;
+}
+
+.bigImageBorder img {
+  width: 100%;
 }
 
 .searchBorder {
@@ -38,8 +42,6 @@ body {
   border-radius: 25px;
   padding: 10px;
 }
-
-
 
 #cont {
   display: none;
