@@ -1,7 +1,7 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 
-
-const imgSrc = "http://interactive.stockport.gov.uk/stockportimagearchive/SIA/thumbnails/"
+const imgSrc =
+  "http://interactive.stockport.gov.uk/stockportimagearchive/SIA/thumbnails/";
 
 class ImageDetails extends Component {
   constructor(props, context) {
@@ -10,21 +10,27 @@ class ImageDetails extends Component {
       title: this.props.title,
       AccessionNo: this.props.AccessionNo,
       ImageDetails: {}
-    }
+    };
   }
-  
 
   render() {
-
     return (
-        <section>
+      <section>
         <section className="imageBorder">
-        <p>{this.state.title}</p> 
-        <img src={imgSrc + this.state.AccessionNo + ".jpg"} text={this.state.title} />
-        <button onClick={() => {this.props.getImage(this.state.AccessionNo)}}>Bigger</button>
+          <p>{this.state.title}</p>
+          <img
+            src={imgSrc + this.state.AccessionNo + ".jpg"}
+            text={this.state.title}
+          />
+          <button
+            onClick={() => {
+              this.props.getImage(this.state.AccessionNo);
+            }}
+          >
+            Show more
+          </button>
         </section>
-        
-</section>
+      </section>
     );
   }
 }
