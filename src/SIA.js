@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ImageDetails from "./components/ImageDetails";
 import FullDetails from "./components/FullDetails";
 
-const API2 = "http://interactive.stockport.gov.uk/siarestapi/v1/Getareas";
+const getAreas = "http://interactive.stockport.gov.uk/siarestapi/v1/Getareas";
 const API3 =
   "http://interactive.stockport.gov.uk/siarestapi/v1/GetPhotosByID?id=3";
 const GetPhotosSearchTitle =
@@ -11,29 +11,65 @@ const GetPhotoByID =
   "http://interactive.stockport.gov.uk/siarestapi/v1/GetPhotosByID?id=";
 const GetPhotosSearchAll =
   "http://interactive.stockport.gov.uk/siarestapi/v1/GetPhotosByTerm?term=";
+const GetPhotosByTermAndArea =
+  "http://interactive.stockport.gov.uk/siarestapi/v1/GetPhotosByTermArea/?term=";
 
 class SIA extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
       Images: [],
+      Areas: [],
       imageDetails: {
         title: ""
       },
       searchTerm: "",
-      searchWhat: [{ id: "title", value: "title" }, { id: "all", value: "all" }]
+      searchWhat: [
+        { id: "title", value: "Title" },
+        { id: "all", value: "All" },
+        { id: "allarea", value: "All/Area" }
+      ]
     };
     this.searchTitle = this.searchTitle.bind(this);
     this.getImage = this.getImage.bind(this);
   }
 
+  componentDidMount() {
+    fetch(getAreas)
+      .then(response => response.json())
+      .then(json => {
+        console.log(json);
+        this.setState({
+          Areas: json
+        });
+      });
+  }
+
   searchTitle(e) {
     this.setState({ Images: [] });
-    var apiLink = GetPhotosSearchTitle;
-    if (this.searchWhat.value === "all") {
-      apiLink = GetPhotosSearchAll;
+    var apiLink = "";
+    switch (this.searchWhat.value) {
+      case "all":
+        apiLink = GetPhotosSearchAll + this.title.value;
+        break;
+      case "title":
+        apiLink = GetPhotosSearchTitle + this.title.value;
+        break;
+      case "allarea":
+        apiLink =
+          GetPhotosByTermAndArea +
+          this.title.value +
+          "&area=" +
+          this.Areas.value;
+        break;
     }
-    fetch(apiLink + this.title.value)
+
+    //var apiLink = GetPhotosSearchTitle;
+    //if (this.searchWhat.value === "all") {
+    //  apiLink = GetPhotosSearchAll;
+    //}
+    //alert(this.searchWhat.value);
+    fetch(apiLink)
       .then(response => response.json())
       .then(json => {
         console.log(json);
@@ -90,6 +126,13 @@ class SIA extends Component {
                 {this.state.searchWhat.map(dd => (
                   <option key={dd.id} value={dd.id}>
                     {dd.value}
+                  </option>
+                ))}
+              </select>
+              <select id="Areas" ref={input => (this.Areas = input)}>
+                {this.state.Areas.map(dd => (
+                  <option key={dd.ID} value={dd.ID}>
+                    {dd.Area1}
                   </option>
                 ))}
               </select>
