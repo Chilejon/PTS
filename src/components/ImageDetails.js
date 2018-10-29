@@ -9,6 +9,10 @@ class ImageDetails extends Component {
     this.state = {
       title: this.props.title,
       AccessionNo: this.props.AccessionNo,
+      description: this.props.description,
+      classno: this.props.classno,
+      dateofimage: this.props.dateofimage,
+      area: this.props.area,
       ImageDetails: {}
     };
   }
@@ -24,7 +28,7 @@ class ImageDetails extends Component {
           />
           <button
             onClick={() => {
-              this.props.getImage(this.state.AccessionNo);
+              this.props.showImage(this.state.AccessionNo, this.state.title, this.state.description, this.state.area, this.state.dateofimage, this.state.classno);
             }}
           >
             Show more

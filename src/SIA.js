@@ -21,7 +21,12 @@ class SIA extends Component {
       Images: [],
       Areas: [],
       imageDetails: {
-        title: ""
+        title: "",
+        description: "",
+        area: "",
+        classno: "",
+        dateofimage: "",
+        AccessionNo: ""
       },
       searchTerm: "",
       searchWhat: [
@@ -31,7 +36,7 @@ class SIA extends Component {
       ]
     };
     this.searchTitle = this.searchTitle.bind(this);
-    this.getImage = this.getImage.bind(this);
+    this.showImage = this.showImage.bind(this);
   }
 
   componentDidMount() {
@@ -64,11 +69,6 @@ class SIA extends Component {
         break;
     }
 
-    //var apiLink = GetPhotosSearchTitle;
-    //if (this.searchWhat.value === "all") {
-    //  apiLink = GetPhotosSearchAll;
-    //}
-    //alert(this.searchWhat.value);
     fetch(apiLink)
       .then(response => response.json())
       .then(json => {
@@ -84,20 +84,23 @@ class SIA extends Component {
     );
     this.setState({ searchTerm: this.title.value });
     e.preventDefault();
-
     this.title.value = "";
+    this.searchWhat.value = "title";
   }
 
-  getImage(event) {
-    fetch(GetPhotoByID + event.trim())
-      .then(response => response.json())
-      .then(json => {
-        console.log(json);
-        this.setState({
-          imageDetails: json
-        });
-      });
+  showImage(AccessionNo, title, description, area, dateofimage, classno) {
+   this.setState({
+     imageDetails: {
+     AccessionNo: AccessionNo,
+     title: title,
+     description: description,
+     area: area,
+     classno:classno,
+     dateofimage:dateofimage
+     }
+   })
   }
+
 
   render() {
     if (this.state.Images !== null) {
@@ -106,7 +109,13 @@ class SIA extends Component {
           <ImageDetails
             title={Images.title}
             AccessionNo={Images.AccessionNo.trim()}
+            description={Images.description.trim()}
+            area={Images.area}
+            dateofimage={Images.dateofimage.trim()}
+            classno={Images.classno.trim()}
+            
             getImage={this.getImage}
+            showImage={this.showImage}
           />
         );
       });
