@@ -33,7 +33,8 @@ class SIA extends Component {
         { id: "title", value: "Title" },
         { id: "all", value: "All" },
         { id: "allarea", value: "All/Area" }
-      ]
+      ],
+      isLoading: false
     };
     this.searchTitle = this.searchTitle.bind(this);
     this.showImage = this.showImage.bind(this);
@@ -51,7 +52,7 @@ class SIA extends Component {
   }
 
   searchTitle(e) {
-    this.setState({ Images: [] });
+    this.setState({ Images: [], isLoading: true });
     var apiLink = "";
     switch (this.searchWhat.value) {
       case "all":
@@ -74,7 +75,8 @@ class SIA extends Component {
       .then(json => {
         console.log(json);
         this.setState({
-          Images: json
+          Images: json,
+          isLoading: false
         });
       });
     this.setState(
@@ -122,13 +124,13 @@ class SIA extends Component {
     } else {
       <section>No results</section>;
     }
-
+    {console.log(this.state.isLoading)}
     return (
       <section className="wrapper">
         <section>
           <section className="searchBorder">
             <form onSubmit={this.searchTitle}>
-              <p>Search a title</p>
+              <p>Search </p>
               <label>Title:</label>
               <input id="title" ref={title => (this.title = title)} required />
               <select id="searchWhat" ref={input => (this.searchWhat = input)}>
@@ -161,6 +163,11 @@ class SIA extends Component {
             <section>{images}</section>
           </section>
         </section>
+        
+        {this.state.isLoading && (<section>
+          Loading.....
+          
+        </section>)}
         <section className="section right">
           {this.state.imageDetails.title !== "" && (
             <section>
